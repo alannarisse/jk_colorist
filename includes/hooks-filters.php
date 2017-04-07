@@ -1,24 +1,24 @@
 <?php
 if(! function_exists('colorist_footer_credits') ) {
-	function colorist_footer_credits() { 
-		printf( __('<p>Powered by <a href="%1$s">WordPress</a>', 'colorist'), esc_url( 'http://wordpress.org/') );
+	function colorist_footer_credits() {
+		printf( __('<p>Powered by <a href="%1$s">WordPress</a>', 'jk_colorist'), esc_url( 'http://wordpress.org/') );
 		printf( '<span class="sep"> .</span>' );
-		printf( __( 'Theme: Colorist by <a href="%1$s" rel="designer">Webulous Themes</a></p>', 'colorist' ), esc_url('http://www.webulousthemes.com/') );
+		printf( __( 'Theme: JK Colorist by <a href="%1$s" rel="designer">Alanna Risse</a></p>', 'colorist' ), esc_url('hhttps://github.com/alannarisse/jk_colorist') );
 	}
 }
-	
-	add_action('colorist_credits','colorist_footer_credits');  
+
+	add_action('colorist_credits','colorist_footer_credits');
 
 if(! function_exists('colorist_before_branding_widgets') ) {
 	function colorist_before_branding_widgets() {
 ?>
 		<div class="top-nav">
 			<div class="container">
-			<?php if( is_active_sidebar( 'top-left' ) ) : ?>    
+			<?php if( is_active_sidebar( 'top-left' ) ) : ?>
 				<div class="cart eight columns top-left">
 					<?php dynamic_sidebar('top-left' ); ?>
 				</div>
-			<?php endif; ?> 
+			<?php endif; ?>
 			<?php if( is_active_sidebar('top-right' ) ) : ?>
 				<div class="eight columns social top-right">
 					<?php dynamic_sidebar('top-right' ); ?>
@@ -45,7 +45,7 @@ if(! function_exists('colorist_more_text_value') ) {
 		}
 		return '<p class="portfolio-readmore"><a class="more-link" href="' . get_permalink() . '">'.$more_link_text.'<span class="screen-reader-text"></span>
 <span class="meta-nav"></span></a></p>';
-	} 
+	}
 }
 
 /**
@@ -66,7 +66,7 @@ function colorist_demo_configuration_sample_styling( $config ) {
 		'width'   => '320px',
 	), $config );
 }
-add_filter( 'kirki/config', 'colorist_demo_configuration_sample_styling' );    
+add_filter( 'kirki/config', 'colorist_demo_configuration_sample_styling' );
 
 add_action('colorist_blog_layout_class_wrapper_before','colorist_blog_layout_wrapper_class_before');
 if(! function_exists('colorist_blog_layout_wrapper_class_before') ) {
@@ -75,7 +75,7 @@ if(! function_exists('colorist_blog_layout_wrapper_class_before') ) {
 		$blog_layout = get_theme_mod('blog_layout',1);
 		switch ( $blog_layout ) {
 			case 2: ?>
-				<div class="eight columns blog-box">	
+				<div class="eight columns blog-box">
 	<?php	break;
 	        case 3: ?>
 			    <div class="one-third column blog-box">
@@ -83,14 +83,14 @@ if(! function_exists('colorist_blog_layout_wrapper_class_before') ) {
 	        case 4: ?>
 			    <div class="eight columns masonry-post blog-box">
 	<?php	break;
-			case 5: ?>  
-			   <div class="one-third column masonry-post blog-box">	
+			case 5: ?>
+			   <div class="one-third column masonry-post blog-box">
 	<?php	break;
 
 		}
 	}
 }
-   
+
 add_action('colorist_blog_layout_class_wrapper_after','colorist_blog_layout_wrapper_class_after');
 if(! function_exists('colorist_blog_layout_wrapper_class_after') ) {
 	function colorist_blog_layout_wrapper_class_after() {
@@ -118,12 +118,12 @@ if(! function_exists('colorist_masonry_custom_js') ) {
 			            }).masonry('reloadItems');
 			      });
 		    });
-	    </script> 
+	    </script>
 
 <?php }
 	}
 }
- 
+
 add_action('colorist_before_header','colorist_before_header_video');
 if(!function_exists('colorist_before_header_video')){
 	function colorist_before_header_video() {
@@ -131,6 +131,6 @@ if(!function_exists('colorist_before_header_video')){
 		    <div class="custom-header-media">
 				<?php the_custom_header_markup(); ?>
 			</div>
-	    <?php } 
+	    <?php }
 	}
 }

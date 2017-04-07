@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
 Theme Name: jk_Colorist
-Theme URI: http://www.webulousthemes.com/colorist/
+Theme URI: https://github.com/alannarisse/jk_colorist
 Author: Alanna Risse
 Author URI: http://www.alannarisse.com/
 Description: This theme was customized for Jolenekelleylmt.com using the Colorist Theme.
@@ -1540,18 +1540,27 @@ article {
 
 .entry-content blockquote {
   position: relative;
-  padding-left: 38px;
+  padding-left: 18px;
   margin-bottom: 30px;
-  border-top: 10px solid #440340; }
+  margin-top:20px;}
   .entry-content blockquote:before {
     position: absolute;
     content: "\f10d";
-    font-size: 50px;
-    font-size: 5rem;
+    font-size: 20px;
+    font-size: 2rem;
     font-family: 'FontAwesome';
     left: 4px;
-    top: -24px;
+    top: -14px;
     color: #440340; }
+  .entry-content blockquote:after {
+    position: absolute;
+    content: "\f10e";
+    font-size: 20px;
+    font-size: 2rem;
+    font-family: 'FontAwesome';
+    right: -14px;
+    top: -14px;
+  }
   .entry-content blockquote p {
     padding: 10px 20px;
     font-size: 16px;
@@ -2657,12 +2666,12 @@ img {
   .site-info .textwidget {
     padding: 0; }
   .site-info p {
-    color: #fff;
+    color: #ddd;
     padding: 10px 0px;
     margin-bottom: 0;
     font-size: 13px; }
   .site-info a {
-    color: #440340; }
+    color: #fff !important; }
     .site-info a:hover {
       color: #1e1e1e; }
   .site-info .widget-title {
@@ -2854,7 +2863,7 @@ img {
       color: #1a1a1a; }
     button.menu-toggle:hover {
       background-color: rgba(0, 0, 0, 0.5); }
-
+  .main-navigation ul li { font-size:80%;padding:6px;margin-top:0;}
   .main-navigation ul ul li:hover > ul {
     left: 10px;
     top: auto;
