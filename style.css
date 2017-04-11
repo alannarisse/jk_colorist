@@ -225,6 +225,10 @@ a img {
   margin-bottom: 2%; }
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
+  .top-nav .container {
+    position:fixed;
+    top:-70px;
+    right:0;}
   .container {
     width: 93%; }
     .container .column, .container .columns {
@@ -303,6 +307,15 @@ a img {
     .container .offset-by-fifteen {
       padding-left: 93.75%; } }
 @media only screen and (max-width: 767px) {
+    .custom-background {
+    background-image: none !important;
+    background-color:#d0cdc5;
+  }
+  .top-nav .container .top-right .textwidget {background-color:#fff;opacity: 0.85;}
+  #site-navigation a { color:#666; }
+  #site-navigation .current-menu-item a { color:#fff; }
+  .site-header .branding .site-branding .site-description { color:#666; }
+  .top-nav .container {top:-24px;height:40px;}
   .container {
     width: 93%; }
     .container .one.column,
@@ -583,6 +596,14 @@ table th {
   font-size: 13px;
   font-size: 1.3rem;
   font-weight: bold; }
+
+/* default button class to be used anywhere */
+.entry-content a.button {padding:10px 20px;background-color:#333;color:#fff;}
+.entry-content a:hover.button {background-color:#440340;}
+
+.site-footer .footer-widgets p a.button {margin-top:10px;}
+.site-footer .footer-widgets a.button {font-weight:800; padding:10px 20px;background-color:#fff;color:#440340;}
+.site-footer .footer-widgets a:hover.button {background-color:#ddd;color:#440340;}
 
 button,
 input,
@@ -944,7 +965,7 @@ a {
   padding: 6px 8px;
   font-size: 15px;
   font-size: 1.5rem;
-  background: #1e1e1e; }
+  background: #666; }
   .site-content .navigation .nav-links a:hover, .site-content .more-link:hover {
     background: #440340;
     color: #fff; }
@@ -1261,8 +1282,7 @@ object {
 .admin-bar .sticky-header #nav-wrap {
   top: 30px; }
 
-.top-nav {
-  background-color: #383838; }
+.top-nav { }
   .top-nav .textwidget {
     padding: 0; }
   .top-nav .widget_text, .top-nav aside {
@@ -1309,6 +1329,14 @@ object {
         border-right: 1px solid #5b5a5a; }
       .top-nav .top-left li i {
         font-size: 13px; }
+      .top-nav .top-right {width:100%;}
+      .top-nav .top-right .textwidget {
+        background-color:#d7d7d7;
+        opacity: 0.85;
+        padding:10px 20px;
+        float:right;
+        font-size:1.4em;
+        font-weight:800;}
 
 /*--------------------------------------------------------------
 9.0 Primary
@@ -1329,7 +1357,7 @@ object {
 }
 .content-area article {
   background-color: rgb(240,242,243);
-  padding:10px 20px;
+  padding:10px 40px;
   margin: 0 0 20px 0;
   border-radius: 25px;
 }
@@ -1584,6 +1612,8 @@ article {
     font-size: 1.6rem;
     margin-top: 0;
     margin-left: 10px; }
+
+.entry-content ul {list-style: circle;}
 
 #primary .entry-content ul {
   list-style: outside none square; }
