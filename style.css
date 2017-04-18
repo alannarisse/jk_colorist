@@ -1207,13 +1207,13 @@ object {
 --------------------------------------------------------------*/
 .site-header .branding {
   padding: 25px 0px;
-  color: #000; }
+  color: #000;}
   .site-header .branding .site-branding {
-    margin: 0; }
+    margin: 0;}
     .site-header .branding .site-branding .site-title {
       @include-font-size (40px);
       font-weight: bold;
-      line-height: 55px; }
+      line-height: 40px; }
       .site-header .branding .site-branding .site-title a {
         color: #440340; }
         .site-header .branding .site-branding .site-title a:hover {
@@ -1225,10 +1225,9 @@ object {
     .site-header .branding .site-branding .site-title span {
       color: #440340; }
   .site-header .branding .site-description {
-    color: #ddd;
-    font-size: 1.8rem;
-    padding-bottom: 3px;
-    font-family: "Roboto", sans-serif;
+    color: #440340;
+    font-size: 1.9rem;
+    padding: 0 0 3px 22px;
     font-weight: 100; }
 
 .no-sidebar {
@@ -1631,7 +1630,12 @@ article {
     left: 55%;
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.7); }
-    .home .flexslider .slides .flex-caption h1, .home .flexslider .slides .flex-caption h2, .home .flexslider .slides .flex-caption h3, .home .flexslider .slides .flex-caption h4, .home .flexslider .slides .flex-caption h5, .home .flexslider .slides .flex-caption h6 {
+    .home .flexslider .slides .flex-caption h1,
+    .home .flexslider .slides .flex-caption h2,
+    .home .flexslider .slides .flex-caption h3,
+    .home .flexslider .slides .flex-caption h4,
+    .home .flexslider .slides .flex-caption h5,
+    .home .flexslider .slides .flex-caption h6 {
       color: #440340; }
     .home .flexslider .slides .flex-caption p {
       margin-bottom: 0; }
@@ -1770,11 +1774,11 @@ article {
     width: 100%; }
     .home .site-content #primary .post-wrapper .post-wrapper-head {
       text-align: center;
-      text-transform: uppercase;
+      text-transform: none;
       margin: 0 auto 40px; }
       .home .site-content #primary .post-wrapper .post-wrapper-head h2 {
         display: inline;
-        border-bottom: 1px solid #000; }
+         }
     .home .site-content #primary .post-wrapper .latest-post {
       margin-bottom: 20px; }
       .home .site-content #primary .post-wrapper .latest-post:nth-child(4n+1) {
