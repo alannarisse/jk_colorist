@@ -56,8 +56,10 @@
 
 					</div><!-- .site-branding -->
 
-					<nav id="site-navigation" class="main-navigation ten columns" role="navigation">
-						<!--  <button class="menu-toggle" aria-controls="menu" aria-expanded="false"><?php _e( '', 'jk_colorist' ); ?></button> -->
+					<nav id="site-navigation" class="main-navigation ten columns" role="navigation" aria-label="<?php _e( 'Top Menu', 'jk_colorist' ); ?>">
+						<!-- <button class="menu-toggle" aria-controls="top-menu" aria-expanded="false"> -->
+						<?php // _e( '', 'jk_colorist' ); ?>
+						<!-- </button> -->
 						<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 					</nav><!-- #site-navigation -->
 					<?php do_action('colorist_after_primary_nav'); ?>
