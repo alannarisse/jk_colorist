@@ -11,7 +11,7 @@ if ( ! function_exists( 'colorist_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  */
-function colorist_paging_nav() {  
+function colorist_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -97,7 +97,7 @@ function colorist_date() {
 	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span>';
-	
+
 
 }
 endif;
@@ -109,8 +109,8 @@ if ( ! function_exists( 'colorist_entry_footer' ) ) :
  */
 function colorist_entry_footer() {
 	// Hide category and tag text for pages.
-     
-	if ( 'post' == get_post_type() ) {  
+
+	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( __( ', ', 'colorist' ) );
 		if ( $categories_list  ) {
@@ -122,14 +122,14 @@ function colorist_entry_footer() {
 		if ( $tags_list ) {
 			printf( '<span class="tags-links"><i class="fa fa-tags"></i> ' . __( '%1$s ', 'colorist' ) . '</span>', $tags_list );
 		}
-		 
+
 	}
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		comments_popup_link( __( 'Leave a comment', 'colorist' ), __( '1 Comment', 'colorist' ), __( '% Comments', 'colorist' ) );
 		echo '</span>';
 	}
-	
+
 }
 endif;
 
@@ -263,7 +263,7 @@ if( ! function_exists('colorist_recent_posts') ) {
 			$output .= '<div class="latest-posts">';
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				$output .= '<div class="latest-post four columns">';
+				$output .= '<div class="latest-post five columns">';
 					$output .= '<div class="latest-post-thumb">';
 					if ( has_post_thumbnail() ) {
 						$output .= get_the_post_thumbnail($query->post->ID ,'colorist-small-featured-image-width');
@@ -274,7 +274,7 @@ if( ! function_exists('colorist_recent_posts') ) {
 					$output .= '</div><!-- .latest-post-thumb -->';
 					$output .= '<div class="latest-post-content">';
 						$output .= '<h3><a href="'. get_permalink() . '">' . get_the_title() . '</a></h3>';
-						$output .= '<p>' . get_the_excerpt() . '</p>';   
+						$output .= '<p>' . get_the_excerpt() . '</p>';
 						$more_text = get_theme_mod('more_text');
 						if( $more_text && !empty( $more_text ) ) {
 							$more_link_text = sprintf(__('%1$s','colorist'), $more_text );
@@ -287,7 +287,7 @@ if( ! function_exists('colorist_recent_posts') ) {
 			}
 			$output .= '<br class="clear"></div><!-- .latest-posts -->';
 			$output .= '</div><!-- .post-wrapper -->';
-		} 
+		}
 		$query = null;
 		// Restore original Post Data
 		wp_reset_postdata();
@@ -298,9 +298,9 @@ if( ! function_exists('colorist_recent_posts') ) {
 /**
   * Generates Breadcrumb Navigation
   */
- 
+
  if( ! function_exists( 'colorist_breadcrumbs' )) {
- 
+
 	function colorist_breadcrumbs() {
 		/* === OPTIONS === */
 		$text['home']     = __( '<i class="fa fa-home"></i>','colorist' ); // text for the 'Home' link
@@ -448,7 +448,7 @@ function colorist_author() {
 	$byline = sprintf(
 		_x( '%s', 'post author', 'colorist' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"><i class="fa fa-user"></i> ' . esc_html( get_the_author() ) . '</a></span>'
-	);	
+	);
 
 	echo $byline;
 }
@@ -456,7 +456,7 @@ function colorist_get_author() {
 	$byline = sprintf(
 		_x( '%s', 'post author', 'colorist' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"><i class="fa fa-user"></i> ' . esc_html( get_the_author() ) . '</a></span>'
-	);	
+	);
 
 	return $byline;
 }
@@ -467,7 +467,7 @@ if( ! function_exists( 'colorist_pagination' )) {
 	/**
 	 * Generates Pagination without WP-PageNavi Plugin
 	 */
-	
+
 	function colorist_pagination($before = '', $after = '') {
 		global $wpdb, $wp_query;
 		$request = $wp_query->request;
@@ -595,7 +595,7 @@ endif;
 	        	'numberposts' => 5, /* you can change this to show more */
 	        	'post__not_in' => array($post->ID)
 	     	);
-	        $related_posts = get_posts($args);   
+	        $related_posts = get_posts($args);
 	        if($related_posts) {
 	        	foreach ($related_posts as $post) : setup_postdata($post); ?>
 		           	<li class="related_post">
@@ -604,52 +604,52 @@ endif;
 		           	</li>
 		        <?php endforeach; }
 		    else {
-	            echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'colorist' ) . '</li>'; 
+	            echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'colorist' ) . '</li>';
 			 }
 		}else{
 			echo '<li class="no_related_post">' . __( 'No Related Posts Yet!', 'colorist' ) . '</li>';
 		}
 		wp_reset_query();
-		
+
 		echo '</ul>';
-	
+
 }
 
 /* Page site style class ( layout )*/
 
-if( !function_exists('colorist_site_style_class') ) { 
+if( !function_exists('colorist_site_style_class') ) {
 	function  colorist_site_style_class(){
        $site_style = get_theme_mod('site-style');
-	    if( $site_style == 'boxed' )  { 
+	    if( $site_style == 'boxed' )  {
 		  $site_style_class = 'container boxed-container';
 		}elseif( $site_style == 'fluid' ){
-	       $site_style_class = 'fluid-container';	 
+	       $site_style_class = 'fluid-container';
 		}
 		else{
 			 $site_style_class = '';
-		} 
-		return $site_style_class; 
+		}
+		return $site_style_class;
 	}
 }
 
 /* Page site style header class ( layout )*/
 
-if( !function_exists('colorist_site_style_header_class') ) { 
+if( !function_exists('colorist_site_style_header_class') ) {
 	function  colorist_site_style_header_class(){
         $site_style = get_theme_mod('site-style');
-	    if( $site_style == 'boxed' )  { 
+	    if( $site_style == 'boxed' )  {
 		  $site_style_header_class = 'boxed-header';
 		}elseif( $site_style == 'fluid' ){
 	       $site_style_header_class = 'fluid-header';
 		}
 		else{
 			 $site_style_header_class = '';
-		} 
+		}
 		return $site_style_header_class;
 	}
 }
 add_action('colorist_sidebar_right_widget','colorist_sidebar_right_widget');
-if( !function_exists('colorist_sidebar_right_widget') ) { 
+if( !function_exists('colorist_sidebar_right_widget') ) {
 	function colorist_sidebar_right_widget() {
 		    if (  is_active_sidebar( 'sidebar-1' ) ) {
 				 dynamic_sidebar('sidebar-1');
@@ -661,33 +661,33 @@ if( !function_exists('colorist_sidebar_right_widget') ) {
 						<li><?php wp_loginout(); ?></li>
 						<?php wp_meta(); ?>
 					</ul>
-		        </aside><?php 
-		   }  
+		        </aside><?php
+		   }
 	}
 }
 
-if ( ! function_exists( 'colorist_entry_top_meta' ) ) : 
+if ( ! function_exists( 'colorist_entry_top_meta' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function colorist_entry_top_meta() {   
-	// Post meta data 
-	
+function colorist_entry_top_meta() {
+	// Post meta data
+
 	  $single_post_top_meta = get_theme_mod('single_post_top_meta', array(1,2,6) );
       // echo '<pre>',print_r($single_post_top_meta),'</pre>';
-	
-    if ( 'post' == get_post_type() ) {  
+
+    if ( 'post' == get_post_type() ) {
 		foreach ($single_post_top_meta as $key => $value) {
-		    if( $value == '1') { 
+		    if( $value == '1') {
 		    	global $post;?>
-		  	    <span class="date-structure">				
-					<span class="dd"><a class="url fn n" href="<?php echo get_day_link(get_the_time('Y'), get_the_time('m'),get_the_time('d')); ?>"><i class="fa fa-clock-o"></i><?php the_time('j M Y'); ?></a></span>		
+		  	    <span class="date-structure">
+					<span class="dd"><a class="url fn n" href="<?php echo get_day_link(get_the_time('Y'), get_the_time('m'),get_the_time('d')); ?>"><i class="fa fa-clock-o"></i><?php the_time('j M Y'); ?></a></span>
 				</span>
 	<?php   }elseif( $value == 2) {
 				printf(
 					_x( '%s', 'post author', 'colorist' ),
 					'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"><i class="fa fa-user"></i> ' . esc_html( get_the_author() ) . '</a></span>'
-				);	
+				);
 			}elseif( $value == 3)  {
 				if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 					echo ' <span class="comments-link"><i class="fa fa-comments"></i>';
@@ -698,13 +698,13 @@ function colorist_entry_top_meta() {
 				$categories_list = get_the_category_list( __( ', ', 'colorist' ) );
 				if ( $categories_list ) {
 					printf( '<span class="cat-links"><i class="fa fa-folder-open"></i> ' . __( '%1$s ', 'colorist' ) . '</span>', $categories_list );
-				}	
+				}
 		    }elseif( $value == 5)  {
 	    		/* translators: used between list items, there is a space after the comma */
 				$tags_list = get_the_tag_list( '', __( ', ', 'colorist' ) );
 				if ( $tags_list ) {
 					printf( '<span class="tags-links"><i class="fa fa-tags"></i> ' . __( '%1$s ', 'colorist' ) . '</span>', $tags_list );
-				}			
+				}
 		    }elseif( $value == 6) {
 		        edit_post_link( __( 'Edit', 'colorist' ), '<span class="edit-link"><i class="fa fa-pencil"></i> ', '</span>' );
 		    }
@@ -713,26 +713,26 @@ function colorist_entry_top_meta() {
 }
 
 endif;
-if ( ! function_exists( 'colorist_entry_bottom_meta' ) ) : 
+if ( ! function_exists( 'colorist_entry_bottom_meta' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function colorist_entry_bottom_meta() {   
-	// Post meta data 
-	
+function colorist_entry_bottom_meta() {
+	// Post meta data
+
 	$single_post_bottom_meta = get_theme_mod('single_post_bottom_meta', array(3,4,5) );
 
-	if ( 'post' == get_post_type() ) {  
+	if ( 'post' == get_post_type() ) {
 		foreach ($single_post_bottom_meta as $key => $value) {
 		    if( $value == '1') { ?>
-		  	    <span class="date-structure">				
-					<span class="dd"><a class="url fn n" href="<?php echo get_day_link(get_the_time('Y'), get_the_time('m'),get_the_time('d')); ?>"><i class="fa fa-clock-o"></i><?php the_time('j M Y'); ?></a></span>	
+		  	    <span class="date-structure">
+					<span class="dd"><a class="url fn n" href="<?php echo get_day_link(get_the_time('Y'), get_the_time('m'),get_the_time('d')); ?>"><i class="fa fa-clock-o"></i><?php the_time('j M Y'); ?></a></span>
 				</span>
 	<?php   }elseif( $value == 2) {
 				printf(
 					_x( '%s', 'post author', 'colorist' ),
 					'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"><i class="fa fa-user"></i> ' . esc_html( get_the_author() ) . '</a></span>'
-				);	
+				);
 			}elseif( $value == 3)  {
 				if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 					echo ' <span class="comments-link"><i class="fa fa-comments"></i>';
@@ -743,13 +743,13 @@ function colorist_entry_bottom_meta() {
 				$categories_list = get_the_category_list( __( ', ', 'colorist' ) );
 				if ( $categories_list ) {
 					printf( '<span class="cat-links"><i class="fa fa-folder-open"></i> ' . __( '%1$s ', 'colorist' ) . '</span>', $categories_list );
-				}	
+				}
 		    }elseif( $value == 5)  {
 	    		/* translators: used between list items, there is a space after the comma */
 				$tags_list = get_the_tag_list( '', __( ', ', 'colorist' ) );
 				if ( $tags_list ) {
 					printf( '<span class="tags-links"><i class="fa fa-tags"></i> ' . __( '%1$s ', 'colorist' ) . '</span>', $tags_list );
-				}			
+				}
 		    }elseif( $value == 6) {
 		        edit_post_link( __( 'Edit', 'colorist' ), '<span class="edit-link"><i class="fa fa-pencil"></i> ', '</span>' );
 		    }
@@ -792,7 +792,7 @@ if( !function_exists('colorist_layout_class') ) {
 	       echo 'sixteen';
 	       return;
 		}
-	     $sidebar_position = get_theme_mod( 'sidebar_position', 'right' ); 
+	     $sidebar_position = get_theme_mod( 'sidebar_position', 'right' );
 		     if( 'fullwidth' == $sidebar_position ) {
 		     	echo 'sixteen';
 		     }elseif('two-sidebar' == $sidebar_position || 'two-sidebar-left' == $sidebar_position || 'two-sidebar-right' == $sidebar_position ) {
@@ -809,57 +809,57 @@ if( !function_exists('colorist_layout_class') ) {
 
 /* Two Sidebar Left action */
 
-add_action('colorist_two_sidebar_left','colorist_double_sidebar_left');   
-if( !function_exists('colorist_double_sidebar_left') ) { 
+add_action('colorist_two_sidebar_left','colorist_double_sidebar_left');
+if( !function_exists('colorist_double_sidebar_left') ) {
  function colorist_double_sidebar_left() {
-    $sidebar_position = get_theme_mod( 'sidebar_position', 'right' ); 
+    $sidebar_position = get_theme_mod( 'sidebar_position', 'right' );
 		if( 'two-sidebar' == $sidebar_position || 'two-sidebar-left' == $sidebar_position ) :
-			 get_sidebar('left'); 
-		endif; 
+			 get_sidebar('left');
+		endif;
 		if('two-sidebar-left' == $sidebar_position || 'left' == $sidebar_position ):
-			get_sidebar(); 
-		endif; 
- }	
+			get_sidebar();
+		endif;
+ }
 }
 
-/* Two Sidebar Right action */     
+/* Two Sidebar Right action */
 
- add_action('colorist_two_sidebar_right','colorist_double_sidebar_right'); 	
-if( !function_exists('colorist_double_sidebar_right') ) { 
+ add_action('colorist_two_sidebar_right','colorist_double_sidebar_right');
+if( !function_exists('colorist_double_sidebar_right') ) {
   function colorist_double_sidebar_right() {
-  	 $sidebar_position = get_theme_mod( 'sidebar_position', 'right' ); 
+  	 $sidebar_position = get_theme_mod( 'sidebar_position', 'right' );
 		 if( 'two-sidebar' == $sidebar_position || 'two-sidebar-right' == $sidebar_position || 'right' == $sidebar_position) :
-			 get_sidebar(); 
-		endif; 	
+			 get_sidebar();
+		endif;
 		if('two-sidebar-right' == $sidebar_position ):
-			get_sidebar('left'); 
-		endif; 
+			get_sidebar('left');
+		endif;
  }
 }
 
 
 add_action('colorist_single_flexslider_featured_image','colorist_single_flexslider_featured_image_top');
-if( !function_exists('colorist_single_flexslider_featured_image_top') ) { 
+if( !function_exists('colorist_single_flexslider_featured_image_top') ) {
 	function colorist_single_flexslider_featured_image_top() {
 		$single_featured_image = get_theme_mod( 'single_featured_image',true );
 		$single_featured_image_size = get_theme_mod ('single_featured_image_size',1);
 		if( $single_featured_image && $single_featured_image_size == 3 ) {
-		    if( has_post_thumbnail() && ! post_password_required() ) :   
-				the_post_thumbnail( 'post-thumbnail', array('class' => "single_page_flexslider_feature_image") ); 
-			endif; 
+		    if( has_post_thumbnail() && ! post_password_required() ) :
+				the_post_thumbnail( 'post-thumbnail', array('class' => "single_page_flexslider_feature_image") );
+			endif;
 		}
 	}
 }
 
 
 add_action('colorist_single_page_flexslider_featured_image','colorist_single_page_flexslider_featured_image_top');
-if( !function_exists('colorist_single_page_flexslider_featured_image_top') ) { 
+if( !function_exists('colorist_single_page_flexslider_featured_image_top') ) {
 	function colorist_single_page_flexslider_featured_image_top() {
 		$single_page_featured_image = get_theme_mod( 'single_page_featured_image',true );
 		$single_page_featured_image_size = get_theme_mod ('single_page_featured_image_size',1);
 		if( $single_page_featured_image && $single_page_featured_image_size == 2) {
-		    if( has_post_thumbnail() && ! post_password_required() ) :   
-				the_post_thumbnail( 'post-thumbnail', array('class' => "single_page_flexslider_feature_image") ); 
+		    if( has_post_thumbnail() && ! post_password_required() ) :
+				the_post_thumbnail( 'post-thumbnail', array('class' => "single_page_flexslider_feature_image") );
 			endif;
 		}
 	}
@@ -868,12 +868,12 @@ if( !function_exists('colorist_single_page_flexslider_featured_image_top') ) {
 /* colorist Custom Logo */
 
 add_filter( 'get_custom_logo', 'colorist_custom_logo' );
-if( !function_exists('colorist_custom_logo') ) { 
+if( !function_exists('colorist_custom_logo') ) {
 	function colorist_custom_logo($html) {
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$logo = get_theme_mod( 'logo', '' );
 		echo '<h1 class="site-title img-logo">';
-		if(!$custom_logo_id && $logo!= '') {	
+		if(!$custom_logo_id && $logo!= '') {
 		    echo '<img src="'.$logo.'">';
 		}else{
 			echo $html;
@@ -882,7 +882,7 @@ if( !function_exists('colorist_custom_logo') ) {
 	}
 }
 
-if( !function_exists('colorist_masonry_blog_layout_class') ) { 
+if( !function_exists('colorist_masonry_blog_layout_class') ) {
 	function colorist_masonry_blog_layout_class() {
 		if( is_home() && get_theme_mod('blog_layout',1) == 4 ||  get_theme_mod('blog_layout',1) == 5 ) {
 			echo 'masonry-blog-content';
@@ -909,15 +909,15 @@ if( ! function_exists( 'colorist_featured_image' ) ) {
 }
 // Recent Posts with featured Images to be displayed on home page
 if( ! function_exists('colorist_recent_posts') ) {
-	function colorist_recent_posts() {      
+	function colorist_recent_posts() {
 		$output = '';
 		$posts_per_page  = get_theme_mod('recent_posts_count', get_option('post_per_page') );
 		// WP_Query arguments
 		$args = array (
 			'post_type'              => 'post',
-			'post_status'            => 'publish',   
+			'post_status'            => 'publish',
 			'posts_per_page'         => $posts_per_page,
-			'ignore_sticky_posts'    => true, 
+			'ignore_sticky_posts'    => true,
 			'order'                  => 'DESC',
 		);
 
@@ -926,16 +926,16 @@ if( ! function_exists('colorist_recent_posts') ) {
 
 		// The Loop
 		if ( $query->have_posts() && get_theme_mod('enable_recent_post_service',true) ) {
-			$output .= '<div class="post-wrapper">';  
-			$output .= '<div class="container">';  
-			 
+			$output .= '<div class="post-wrapper">';
+			$output .= '<div class="container">';
+
 			$output .= '<h1 class="title-divider">' . apply_filters('colorist_post_title',__('Recent Post','colorist') ) . '</h1>';
 			$output .= '<div class="latest-posts">';
 			while ( $query->have_posts() ) {
 				$query->the_post();
 				$output .= '<div class="one-third column">';
 				$output .= '<div class="latest-post">';
-						$output .= '<div class="latest-post-thumb">'; 
+						$output .= '<div class="latest-post-thumb">';
 								if ( has_post_thumbnail() ) {
 									$output .= get_the_post_thumbnail($query->post->ID ,'colorist-recent_posts_img');
 								}
@@ -949,7 +949,7 @@ if( ! function_exists('colorist_recent_posts') ) {
 							$output .= colorist_get_author();
 							$output .= colorist_get_comments_meta();
 						$output .='</div><!-- entry-meta -->';
-							
+
 						$output .= '<div class="latest-post-content">';
 						$output .= '<p>' . get_the_excerpt() . '</p>';
 					$output .= '</div><!-- .latest-post-content -->';
@@ -960,7 +960,7 @@ if( ! function_exists('colorist_recent_posts') ) {
 			$output .= '</div><!-- latest post end -->';
 			$output .= '</div><!-- container close -->';
 			$output .= '</div><!-- .post-wrapper -->';
-		} 
+		}
 		$query = null;
 		// Restore original Post Data
 		wp_reset_postdata();

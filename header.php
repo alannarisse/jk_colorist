@@ -11,7 +11,9 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="description" content="Jolene Kelley LMT - Licensed Massage Therapist in Portland, Oregon, specializing in Craniosacral Therapy, Shiatsu Massage, Energy Healing, my goal is to offer affordable healing and bodywork to the Portland community." />
+<meta name="keywords" content="Craniosacral Therapy Portland,Cranio Sacral Portland,Cranial Sacral Portland,Shiatsu Massage Portland,Energy Work Portland,Reiki Portland,Licensed Massage Therapist Portland,Northeast Portland,Southeast Portland,NE Portland,SE Portland" />
+<meta name="msvalidate.01" content="4FA8B23E4EFAF039292C0E996A3AEFE1" />
 <?php if( get_theme_mod('apple_touch') ) : ?>
 	<!-- For first- and second-generation iPad: -->
 	<link rel="apple-touch-icon" href="<?php echo esc_url( get_theme_mod( 'apple_touch' ) ); ?>">
