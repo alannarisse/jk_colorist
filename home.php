@@ -16,8 +16,25 @@ if( get_theme_mod('blog-slider',false) ) {
 	get_template_part('category-slider');
 }
 ?>
-	<div id="content" class="site-content test">
+
+	<div class="breadcrumb-wrap">
 		<div class="container">
+			<div class="six columns">
+					<div id="breadcrumb" role="navigation">
+					</div>
+			</div>
+			<div class="ten columns">
+				<header class="entry-header">
+					<h1 class="entry-title">Blog Posts</h1>
+				</header><!-- .entry-header -->
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="content" class="site-content">
+		<div class="container home">
 
 	<?php if( get_theme_mod('blog_layout',1) != 3 && get_theme_mod('blog_layout',1) != 5 ) {
 	   	   do_action('colorist_two_sidebar_left');

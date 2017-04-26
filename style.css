@@ -209,6 +209,8 @@ a img {
   .container .offset-by-fifteen {
     padding-left: 93.75%; }
 
+.site-content .container .home {margin-top:0;}
+
 .column, .columns {
   float: left;
   display: inline;
@@ -1373,12 +1375,12 @@ object {
 
 .breadcrumb-wrap { /* rgb(160,150,160) */
   padding: 30px 0;
-  background-color: #333; opacity: 0.75;
-  /* background: url("/wp-content/uploads/2017/03/woodgrain-asterisk.jpg") repeat left top; */
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333; }
+  background-color: #545353;
+    border-top: none;
+    border-bottom: none; }
 .breadcrumb-wrap #breadcrumb {
   margin-top: 25px; }
+  .breadcrumb-wrap #breadcrumb #crumbs {display:none;}
 .breadcrumb-wrap #breadcrumb span {
   margin-left: 8px;
   margin-right: 8px;
@@ -2638,7 +2640,7 @@ img {
 .site-footer .footer-widgets {
   background-image: url("images/woodgrain-asterisk.jpg");
   color: #fff;
-  padding: 30px 0px; }
+  padding: 80px 0px 20px 0; }
 .site-footer .footer-widgets li {
   border-bottom: none;
   border-top: none !important; }
@@ -2646,9 +2648,24 @@ img {
   margin-left: 6px; }
 .site-footer .footer-widgets .widget-title {
   color: #fff;
-  border-bottom: 1px solid #fff;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   position: relative; }
+.site-footer .one-third .vr {
+    width:10px;
+    background-color:#000;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:150px;
+}
+.site-footer .one-third { border-right: 1px solid #fff;padding-left:20px;}
+.site-footer .one-third:nth-child(3) {border-right:none;}
+.site-footer .widget {
+  margin:  0;}
+  .site-footer .widget-title {
+  padding:  0;
+  margin-top:-30px;}
+
 .site-footer .footer-widgets .widget-title:after {
   content: "";
   position: absolute;
@@ -2788,7 +2805,6 @@ img {
       text-align: center;
       float: none;
       display: inline-block; }
-  .breadcrumb-wrap {display:none;}
     }
   }
 @media only screen and (min-width: 768px) and (max-width: 960px) {
@@ -2820,6 +2836,18 @@ img {
 }
 
 @media only screen and (max-width: 768px) {
+  .breadcrumb-wrap #breadcrumb {margin:0;}
+
+  .breadcrumb-wrap {
+    padding:0;
+    background-color:none;
+  }
+  .breadcrumb-wrap .entry-header .entry-title {
+    font-size:20px;
+    font-size: 2.0rem;
+    padding-bottom:6px;
+  }
+  .site-content {margin-top:30px;}
   .widget-area .search-form input.search-field {
     width: 96%; }
 
@@ -2846,6 +2874,13 @@ img {
 
   .site-branding {
     text-align: center; }
+  .site-footer .footer-widgets {padding: 30px 0;}
+  .site-footer .one-third {  border-right: none;padding:0;}
+  .site-footer .widget {
+    margin:  0;padding-bottom:30px;}
+    .site-footer .widget-title {
+    padding:  0;
+    margin-top:0;}
 }
 
 @media only screen and (max-width: 700px) {
