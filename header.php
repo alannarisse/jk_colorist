@@ -11,8 +11,15 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="http://jolenekelleylmt.com/"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Jolene Kelley"/>
+<meta property="og:description" content="Jolene Kelley LMT - Licensed Massage Therapist in Portland, Oregon, specializing in Craniosacral Therapy, Shiatsu Massage, Energy Healing, my goal is to offer affordable healing and bodywork to the Portland community." />
 <meta name="description" content="Jolene Kelley LMT - Licensed Massage Therapist in Portland, Oregon, specializing in Craniosacral Therapy, Shiatsu Massage, Energy Healing, my goal is to offer affordable healing and bodywork to the Portland community." />
 <meta name="keywords" content="Craniosacral Therapy Portland,Cranio Sacral Portland,Cranial Sacral Portland,Shiatsu Massage Portland,Energy Work Portland,Reiki Portland,Licensed Massage Therapist Portland,Northeast Portland,Southeast Portland,NE Portland,SE Portland" />
+<meta property="og:url" content="http://jolenekelleylmt.com/"/>
+<meta property="og:site_name" content="Jolene Kelley"/>
 <meta name="msvalidate.01" content="4FA8B23E4EFAF039292C0E996A3AEFE1" />
 <?php if( get_theme_mod('apple_touch') ) : ?>
 	<!-- For first- and second-generation iPad: -->
@@ -26,7 +33,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site <?php echo colorist_site_style_class(); ?>">
+<div id="page" itemscope itemtype="http://schema.org/LocalBusiness" class="hfeed site <?php echo colorist_site_style_class(); ?>">
 
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'colorist' ); ?></a>
 	<?php do_action('colorist_before_header'); ?>
@@ -49,7 +56,7 @@
 					        }elseif( $logo != '' && $logo_title ) { ?>
 							   <h1 class="site-title img-logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url($logo) ?>"></a></h1>
 						<?php	}else { ?>
-									<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+									<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span itemprop="name"><?php bloginfo( 'name' ); ?></span></a></h1>
 							    <?php } ?>
 							<?php if( $tagline ) : ?>
 									<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
